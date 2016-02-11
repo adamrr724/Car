@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Here are the cars that matched your search!!!</h1>
+    {% if cars is not empty %}
+        {% for car in cars %}
+            <h3>{{ car.getModel }}</h3>
+            <ul>
+                <li>Mileage: {{ car.getMiles }} </li>
+                <li>Price: {{ car.getPrice }} </li>
+                <img src="{{ car.getImage }}" alt="" />
+            </ul>
+        {% endfor %}
+        {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <a href="/list">Go back to listings</a>
+</div>

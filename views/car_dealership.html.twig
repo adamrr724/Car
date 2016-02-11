@@ -1,0 +1,40 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>Find a Car</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Here are the posted cars!!!</h1>
+        {% if cars is not empty %}
+            {% for car in cars %}
+                <h3>{{ car.getModel }}</h3>
+                <ul>
+                    <li>Mileage: {{ car.getMiles }} </li>
+                    <li>Price: {{ car.getPrice }} </li>
+                    <img src="{{ car.getImage }}" alt="" />
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <form action="/clear" method="post">
+        <button type="submit" name="button">Clear</button>
+    </form>
+    <a href="/">Add another car</a>
+
+    <div class='container'>
+    <h1>Search Car list by Mileage and Price</h1>
+    <form  action='/car_search' method="get">
+        <div class='form-group'>
+            <label for='price'>Enter Maximum Price:</label>
+            <input type='number' name='price' value='price'>
+        </div>
+        <div class='form-group'>
+            <label for='mileage'>Enter Maximum Mileage:</label>
+            <input type='number' name='mileage' value='mileage'>
+        </div>
+        <button type='submit' class='btn-success'>Submit</button>
+    </form>
+</div>
+</body>
+</html>
